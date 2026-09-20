@@ -1,6 +1,117 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07131f"><meta name="description" content="WhiteSpace — sua rede social retro-futurista."><meta http-equiv="Content-Security-Policy" content="default-src 'self';img-src 'self' data: https:;style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;font-src 'self' https://fonts.gstatic.com;script-src 'self' https://cdn.jsdelivr.net;connect-src 'self' https://elsqukvzlvyqhboehwka.supabase.co wss://elsqukvzlvyqhboehwka.supabase.co;object-src 'none';base-uri 'self';form-action 'self';frame-ancestors 'none'"><link rel="manifest" href="manifest.json"><title>WhiteSpace // 0.5</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/main.css"></head><body><div class="ambient"></div><div class="scanlines"></div><div id="toast" class="toast"></div>
-<section id="auth-screen" class="auth-screen"><div class="auth-shell glass"><div class="window-bar"><b>WHITESPACE_OS // SECURE BOOT</b><span>● ● ●</span></div><div class="auth-grid"><div class="auth-copy"><div class="logo">W<span>/</span>S</div><div class="eyebrow">RETRO SOCIAL NETWORK // 0.5</div><h1>SEU ESPAÇO.<br>SEU UNIVERSO.</h1><p>Uma rede social personalizável, com identidade própria e dados reais.</p><div class="system-lines"><span>AUTH</span><b>READY</b><span>DATABASE</span><b>ONLINE</b><span>RLS</span><b>ACTIVE</b></div></div><div class="auth-panel"><div class="tabs"><button class="tab active" data-auth="signup">CRIAR CONTA</button><button class="tab" data-auth="login">ENTRAR</button></div><form id="signup-form" class="form"><label>NOME<input id="signup-name" maxlength="40" required autocomplete="name" placeholder="Seu nome"></label><label>USUÁRIO<input id="signup-username" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" required autocomplete="username" placeholder="seu_usuario"></label><label>E-MAIL<input id="signup-email" type="email" required autocomplete="email" placeholder="voce@email.com"></label><label>SENHA<input id="signup-password" type="password" minlength="8" required autocomplete="new-password" placeholder="mínimo 8 caracteres"></label><label>AVATAR<input id="signup-avatar" type="file" accept="image/png,image/jpeg,image/webp"></label><button class="btn primary wide">CRIAR MEU ESPAÇO →</button></form><form id="login-form" class="form hidden"><label>E-MAIL<input id="login-email" type="email" required autocomplete="email"></label><label>SENHA<input id="login-password" type="password" required autocomplete="current-password"></label><button class="btn primary wide">CONECTAR →</button><button type="button" id="forgot-password" class="text-btn">RECUPERAR SENHA</button><button type="button" id="resend-confirmation" class="text-btn hidden">REENVIAR CONFIRMAÇÃO</button></form><div id="setup-note" class="notice hidden"></div></div></div></div></section>
-<div id="app" class="app hidden"><aside class="sidebar glass"><div class="window-bar"><span>W/S TERMINAL</span><span>0.5</span></div><div class="side-inner"><div class="brand">W<span>/</span>S</div><div id="mini-profile"></div><nav><button class="nav active" data-view="home">01 // INÍCIO</button><button class="nav" data-view="explore">02 // EXPLORAR</button><button class="nav" data-view="profile">03 // MEU PERFIL</button><button class="nav" data-view="bookmarks">04 // SALVOS</button><button class="nav" data-view="notifications">05 // SINAIS</button><button class="nav" data-view="settings">06 // CUSTOM</button></nav><button id="donate-open" class="btn donate">◇ APOIAR PROJETO</button><button id="logout" class="text-btn">DESCONECTAR</button></div></aside><main class="content"><header class="topbar glass"><div><span class="eyebrow">CURRENT_NODE</span><strong id="view-title">INÍCIO</strong><span id="status" class="status">OFFLINE</span></div><div><button id="refresh" class="btn small">↻ SYNC</button><button id="quick-theme" class="btn small">◐ TEMA</button></div></header>
-<section id="view-home" class="view"><div class="hero glass"><div><div class="eyebrow">TRANSMISSION_001</div><h2>O FUTURO É<br>PERSONALIZÁVEL.</h2><p>Publique ideias, desenhos, memes e pequenos sinais.</p></div><div class="hero-orbit">W/S<br><small>1984 → 2099</small></div></div><form id="post-form" class="glass composer"><textarea id="post-content" maxlength="1000" required placeholder="TRANSMITA ALGO..."></textarea><div class="row"><span id="post-count">0/1000</span><button class="btn primary">PUBLICAR →</button></div></form><div id="feed" class="feed"></div></section>
-<section id="view-explore" class="view hidden"><div class="glass search-panel"><div class="search-row"><input id="search-input" placeholder="buscar @usuário, nome ou publicação..."><button id="search-btn" class="btn primary">SCAN</button></div><div class="filter-row"><button class="filter active" data-search-type="all">TUDO</button><button class="filter" data-search-type="people">PESSOAS</button><button class="filter" data-search-type="posts">PUBLICAÇÕES</button></div></div><div id="search-results"></div></section><section id="view-profile" class="view hidden"><div id="profile-page"></div></section><section id="view-bookmarks" class="view hidden"><div id="bookmarks-list"></div></section><section id="view-notifications" class="view hidden"><div id="notifications-list"></div></section><section id="view-settings" class="view hidden"><div id="settings-page"></div></section></main></div>
-<dialog id="donate-dialog" class="glass dialog"><button id="donate-close" class="close">×</button><div class="eyebrow">SUPPORT_NODE</div><h2>APOIE O WHITESPACE</h2><p class="muted">Os links de apoio são configurados pelo dono do projeto.</p><div id="donation-options" class="donations"></div></dialog><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="js/app.js"></script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#dff8ff">
+<meta name="description" content="WhiteSpace — uma rede social retro-futurista, personalizável e feita para comunidades.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self';img-src 'self' data: https:;style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;font-src 'self' https://fonts.gstatic.com;script-src 'self' https://cdn.jsdelivr.net;connect-src 'self' https://elsqukvzlvyqhboehwka.supabase.co wss://elsqukvzlvyqhboehwka.supabase.co;object-src 'none';base-uri 'self';form-action 'self';frame-ancestors 'none'">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Orbitron:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<title>WhiteSpace — seu espaço, seu universo</title>
+</head>
+<body>
+<div class="sky-glow"></div><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div><div class="scanlines"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<section id="auth-screen" class="auth-screen">
+  <div class="auth-window">
+    <header class="window-title"><span><i class="led"></i> WHITESPACE // ONLINE</span><span>◇ 0.6</span></header>
+    <div class="auth-layout">
+      <div class="auth-hero">
+        <div class="aero-orb"><span>W</span></div>
+        <div class="kicker">RETRO SOCIAL NETWORK</div>
+        <h1>Seu espaço.<br><em>Seu universo.</em></h1>
+        <p>Uma rede social com personalidade: perfis customizáveis, publicações, amizades e uma interface inspirada no futuro que a internet imaginou.</p>
+        <div class="signal-row"><span>● AUTH</span><b>READY</b><span>● DATABASE</span><b>ONLINE</b><span>● RLS</span><b>ACTIVE</b></div>
+      </div>
+      <div class="auth-card">
+        <div class="auth-tabs"><button class="tab active" data-auth="signup">CRIAR CONTA</button><button class="tab" data-auth="login">ENTRAR</button></div>
+        <div id="auth-message" class="auth-message hidden"></div>
+        <form id="signup-form" class="form">
+          <label>SEU NOME<input id="signup-name" maxlength="40" required autocomplete="name" placeholder="Como quer ser chamada/o"></label>
+          <label>USUÁRIO<input id="signup-username" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" required autocomplete="username" placeholder="seu_usuario"></label>
+          <label>E-MAIL<input id="signup-email" type="email" required autocomplete="email" placeholder="voce@email.com"></label>
+          <label>SENHA<input id="signup-password" type="password" minlength="8" required autocomplete="new-password" placeholder="mínimo 8 caracteres"></label>
+          <label>AVATAR <span class="optional">opcional</span><input id="signup-avatar" type="file" accept="image/png,image/jpeg,image/webp"></label>
+          <button class="aero-button primary wide">CRIAR MEU ESPAÇO <span>→</span></button>
+        </form>
+        <form id="login-form" class="form hidden">
+          <label>E-MAIL<input id="login-email" type="email" required autocomplete="email" placeholder="voce@email.com"></label>
+          <label>SENHA<input id="login-password" type="password" required autocomplete="current-password" placeholder="sua senha"></label>
+          <button class="aero-button primary wide">ENTRAR NO WHITESPACE <span>→</span></button>
+          <button type="button" id="forgot-password" class="link-button">Esqueci minha senha</button>
+          <button type="button" id="resend-confirmation" class="link-button hidden">Reenviar confirmação de e-mail</button>
+        </form>
+        <div id="setup-note" class="notice hidden"></div>
+        <small class="privacy-note">Seus dados ficam protegidos por Supabase Auth + Row Level Security.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="app" class="app hidden">
+  <aside class="sidebar panel">
+    <div class="window-title"><span><i class="led"></i> W/S TERMINAL</span><span>0.6</span></div>
+    <div class="sidebar-body">
+      <div class="brand"><span>W</span>/S <small>WHITESPACE</small></div>
+      <div id="mini-profile"></div>
+      <nav class="main-nav">
+        <button class="nav active" data-view="home"><span>⌂</span> INÍCIO</button>
+        <button class="nav" data-view="explore"><span>⌕</span> EXPLORAR</button>
+        <button class="nav" data-view="profile"><span>◉</span> MEU PERFIL</button>
+        <button class="nav" data-view="bookmarks"><span>◇</span> SALVOS</button>
+        <button class="nav" data-view="notifications"><span>✦</span> SINAIS</button>
+        <button class="nav" data-view="settings"><span>⚙</span> CUSTOMIZAR</button>
+      </nav>
+      <button id="donate-open" class="aero-button support">♡ APOIAR O PROJETO</button>
+      <button id="logout" class="link-button logout">DESCONECTAR</button>
+    </div>
+  </aside>
+
+  <main class="content">
+    <header class="topbar panel">
+      <div class="node-info"><span class="kicker">CURRENT NODE</span><strong id="view-title">INÍCIO</strong><span id="status" class="status"><i></i> OFFLINE</span></div>
+      <div class="top-actions"><button id="refresh" class="icon-button" title="Atualizar">↻</button><button id="quick-theme" class="aero-button tiny">◐ TEMA</button></div>
+    </header>
+
+    <section id="view-home" class="view">
+      <div class="welcome panel">
+        <div><span class="kicker">TRANSMISSION_001</span><h2>O futuro ficou <em>bonito.</em></h2><p>Compartilhe ideias, desenhos, memes e pequenos sinais com a sua comunidade.</p></div>
+        <div class="planet"><div class="planet-ring"></div><strong>W/S</strong><small>1984 → 2099</small></div>
+      </div>
+      <form id="post-form" class="composer panel">
+        <div class="composer-head"><div id="composer-avatar"></div><div><b>Transmitir para o WhiteSpace</b><small>O que está acontecendo no seu universo?</small></div></div>
+        <textarea id="post-content" maxlength="1000" required placeholder="Escreva algo..."></textarea>
+        <div class="composer-footer"><span id="post-count">0 / 1000</span><button class="aero-button primary">PUBLICAR <span>→</span></button></div>
+      </form>
+      <div id="feed" class="feed"></div>
+    </section>
+
+    <section id="view-explore" class="view hidden">
+      <div class="panel explore-head"><span class="kicker">DISCOVERY_NODE</span><h2>Explore o universo.</h2><div class="search-row"><input id="search-input" autocomplete="off" placeholder="Buscar pessoas, @usuários ou publicações..."><button id="search-btn" class="aero-button primary">BUSCAR</button></div><div class="filter-row"><button class="filter active" data-search-type="all">TUDO</button><button class="filter" data-search-type="people">PESSOAS</button><button class="filter" data-search-type="posts">PUBLICAÇÕES</button></div></div>
+      <div id="search-results"></div>
+    </section>
+
+    <section id="view-profile" class="view hidden"><div id="profile-page"></div></section>
+    <section id="view-bookmarks" class="view hidden"><div id="bookmarks-list"></div></section>
+    <section id="view-notifications" class="view hidden"><div id="notifications-list"></div></section>
+    <section id="view-settings" class="view hidden"><div id="settings-page"></div></section>
+  </main>
+</div>
+
+<dialog id="donate-dialog" class="donation-dialog">
+  <button id="donate-close" class="dialog-close" aria-label="Fechar">×</button>
+  <span class="kicker">SUPPORT_NODE</span><h2>Ajude o WhiteSpace a crescer.</h2>
+  <p>Escolha uma forma de apoiar. Os links são definidos pelo dono do projeto.</p>
+  <div id="donation-options" class="donations"></div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
