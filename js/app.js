@@ -2,7 +2,7 @@
 const C=window.WHITESPACE_CONFIG||{},ready=!!(C.supabaseUrl&&C.supabaseKey&&!String(C.supabaseUrl).startsWith("COLE_")),sb=ready?window.supabase.createClient(C.supabaseUrl,C.supabaseKey):null;
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 let currentUser=null,currentProfile=null,searchType="all",booting=false;
-const APP_URL=location.href.split("#")[0];
+const APP_URL=(C.productionUrl||location.origin+location.pathname).replace(/#.*$/,"");
 const toast=(m,type="info")=>{const e=$("#toast");if(!e)return;e.textContent=m;e.className="toast show "+type;clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("show"),3800)};
 const esc=s=>String(s??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
 const ago=i=>{const s=Math.max(1,(Date.now()-new Date(i))/1000);return s<60?Math.floor(s)+"s":s<3600?Math.floor(s/60)+"min":s<86400?Math.floor(s/3600)+"h":Math.floor(s/86400)+"d"};
