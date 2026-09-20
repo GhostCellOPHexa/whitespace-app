@@ -18,32 +18,38 @@
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 <section id="auth-screen" class="auth-screen">
-  <div class="auth-window">
-    <header class="window-title"><span><i class="led"></i> WHITESPACE // ONLINE</span><span>◇ 0.7</span></header>
-    <div class="auth-layout">
-      <div class="auth-hero">
-        <div class="aero-orb"><span>W</span></div>
-        <div class="kicker">RETRO SOCIAL NETWORK</div>
-        <h1>Seu espaço.<br><em>Seu universo.</em></h1>
-        <p>Uma rede social com personalidade: perfis customizáveis, publicações, amizades e uma interface inspirada no futuro que a internet imaginou.</p>
-        <div class="signal-row"><span>● AUTH</span><b>READY</b><span>● DATABASE</span><b>ONLINE</b><span>● RLS</span><b>ACTIVE</b></div>
+  <div id="landing-screen" class="auth-window landing-window">
+    <header class="window-title"><span><i class="led"></i> WHITESPACE // WELCOME</span><span>◇ 0.7</span></header>
+    <div class="landing">
+      <div class="aero-orb"><span>W</span></div>
+      <span class="kicker">RETRO SOCIAL NETWORK</span>
+      <h1>WHITESPACE</h1>
+      <p class="landing-subtitle">Seu espaço na internet. Pessoas, ideias, desenhos, memes e comunidades em um universo Frutiger Aero.</p>
+      <div class="landing-actions">
+        <button id="open-login" class="aero-button primary big">ENTRAR <span>→</span></button>
+        <button id="open-signup" class="aero-button big">CRIAR CONTA</button>
       </div>
-      <div class="auth-card">
-        <div class="auth-tabs"><button class="tab active" data-auth="signup">CRIAR CONTA</button><button class="tab" data-auth="login">ENTRAR</button></div>
-        <div id="auth-message" class="auth-message hidden"></div>
-        <form id="signup-form" class="form">
-          <label>NOME<input id="signup-name" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" required autocomplete="username" placeholder="seu_nome"></label>
-          <label>SENHA<input id="signup-password" type="password" minlength="8" required autocomplete="new-password" placeholder="mínimo 8 caracteres"></label>
-          <button class="aero-button primary wide">CRIAR CONTA <span>→</span></button>
-        </form>
-        <form id="login-form" class="form hidden">
-          <label>NOME<input id="login-name" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" required autocomplete="username" placeholder="seu_nome"></label>
-          <label>SENHA<input id="login-password" type="password" required autocomplete="current-password" placeholder="sua senha"></label>
-          <button class="aero-button primary wide">ENTRAR NO WHITESPACE <span>→</span></button>
-        </form>
-        <div id="setup-note" class="notice hidden"></div>
-        <small class="privacy-note">Entre usando apenas seu nome e sua senha. A página principal abre automaticamente.</small>
-      </div>
+      <div class="signal-row"><span>● DATABASE</span><b>ONLINE</b><span>● RLS</span><b>ACTIVE</b><span>● NODE</span><b>READY</b></div>
+    </div>
+  </div>
+
+  <div id="auth-window" class="auth-window auth-window-login hidden">
+    <header class="window-title"><button id="back-auth" class="window-back">← VOLTAR</button><span>WHITESPACE // ACCESS</span><span>◇ 0.7</span></header>
+    <div class="auth-card standalone-auth">
+      <div class="auth-tabs"><button class="tab active" data-auth="login">ENTRAR</button><button class="tab" data-auth="signup">CRIAR CONTA</button></div>
+      <div id="auth-message" class="auth-message hidden"></div>
+      <form id="login-form" class="form">
+        <label>NOME<input id="login-name" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" required autocomplete="username" placeholder="seu_nome"></label>
+        <label>SENHA<input id="login-password" type="password" required autocomplete="current-password" placeholder="sua senha"></label>
+        <button class="aero-button primary wide">ENTRAR NO WHITESPACE <span>→</span></button>
+      </form>
+      <form id="signup-form" class="form hidden">
+        <label>NOME<input id="signup-name" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" required autocomplete="username" placeholder="seu_nome"></label>
+        <label>SENHA<input id="signup-password" type="password" minlength="8" required autocomplete="new-password" placeholder="mínimo 8 caracteres"></label>
+        <button class="aero-button primary wide">CRIAR CONTA <span>→</span></button>
+      </form>
+      <div id="setup-note" class="notice hidden"></div>
+      <small class="privacy-note">Acesso somente com nome e senha. Depois de entrar, você vai direto para a página principal.</small>
     </div>
   </div>
 </section>
