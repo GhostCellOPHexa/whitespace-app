@@ -1,9 +1,9 @@
-// WhiteSpace 0.3 — configuração pública do frontend.
-// Cole aqui apenas a URL e a publishable/anon key do seu projeto Supabase.
-// NUNCA coloque service_role keys, senhas ou segredos de pagamento neste arquivo.
+// WhiteSpace 0.4 — configuração pública do frontend.
+// Apenas a URL e a publishable key são usadas no navegador.
+// Nunca coloque service_role/secret keys ou senhas aqui.
 window.WHITESPACE_CONFIG = {
-  supabaseUrl: "COLE_AQUI_SUA_SUPABASE_URL",
-  supabaseKey: "COLE_AQUI_SUA_SUPABASE_PUBLISHABLE_KEY",
+  supabaseUrl: "https://elsqukvzlvyqhboehwka.supabase.co",
+  supabaseKey: "sb_publishable_WrR8Yio37ShIknHX0CditA_4MfOMQJB",
   donations: {
     5: "",
     10: "",
