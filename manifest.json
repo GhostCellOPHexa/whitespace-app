@@ -1,1 +1,11 @@
-{"name":"WhiteSpace // Retro Network","short_name":"WhiteSpace","start_url":"./","scope":"./","display":"standalone","background_color":"#050b16","theme_color":"#07131f","description":"Sua rede social retro-futurista personalizável.","icons":[]}
+{
+  "name":"WhiteSpace — Seu Espaço, Seu Universo",
+  "short_name":"WhiteSpace",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#dff9ff",
+  "theme_color":"#58c9f4",
+  "description":"Uma rede social retro-futurista e personalizável.",
+  "icons":[]
+}
