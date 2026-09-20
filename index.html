@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WhiteSpace — uma comunidade social inspirada na internet retrô e na estética Frutiger Aero.">
+  <title>WhiteSpace — Frutiger Aero Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="sky-orb orb-a"></div><div class="sky-orb orb-b"></div>
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <section id="auth-screen" class="auth-screen">
+    <div class="auth-window aero-panel">
+      <div class="brand-large"><span class="brand-cloud">☁</span> WhiteSpace</div>
+      <p class="tagline">um cantinho da internet para respirar, criar e conversar.</p>
+      <div class="aero-tabs">
+        <button class="tab active" data-auth-tab="signup">Criar perfil</button>
+        <button class="tab" data-auth-tab="login">Entrar</button>
+      </div>
+
+      <form id="signup-form" class="auth-form">
+        <label>Nome <input id="signup-name" maxlength="40" required placeholder="Seu nome"></label>
+        <label>Usuário <input id="signup-username" maxlength="24" required placeholder="@seuusuario" pattern="[A-Za-z0-9_]{3,24}"></label>
+        <label>E-mail <input id="signup-email" type="email" required placeholder="voce@exemplo.com"></label>
+        <label>Senha <input id="signup-password" type="password" minlength="8" required placeholder="mínimo de 8 caracteres"></label>
+        <label>Foto do perfil <input id="signup-avatar" type="file" accept="image/png,image/jpeg,image/webp"></label>
+        <button class="aero-button primary" type="submit">Criar meu perfil ✨</button>
+        <small>O e-mail é usado pelo sistema de autenticação; sua senha não fica armazenada no código do site.</small>
+      </form>
+
+      <form id="login-form" class="auth-form hidden">
+        <label>E-mail <input id="login-email" type="email" required></label>
+        <label>Senha <input id="login-password" type="password" required></label>
+        <button class="aero-button primary" type="submit">Entrar no WhiteSpace 🌊</button>
+        <button class="link-button" type="button" id="forgot-password">Esqueci minha senha</button>
+      </form>
+      <div id="setup-note" class="setup-note hidden"></div>
+    </div>
+  </section>
+
+  <div id="app" class="app-shell hidden">
+    <aside class="sidebar aero-panel">
+      <div class="brand-small"><span>☁</span> WhiteSpace</div>
+      <div id="mini-profile" class="mini-profile"></div>
+      <nav>
+        <button class="nav-item active" data-view="home">🏠 <span>Início</span></button>
+        <button class="nav-item" data-view="profile">🌈 <span>Meu perfil</span></button>
+        <button class="nav-item" data-view="explore">🔎 <span>Explorar</span></button>
+        <button class="nav-item" data-view="messages">💬 <span>Mensagens</span></button>
+        <button class="nav-item" data-view="notifications">🔔 <span>Notificações</span></button>
+        <button class="nav-item" data-view="settings">⚙️ <span>Configurações</span></button>
+      </nav>
+      <button id="donate-open" class="donate-button">💙 Apoiar o WhiteSpace</button>
+      <button id="logout" class="logout-button">Sair</button>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar aero-panel">
+        <div><strong id="view-title">Início</strong><span id="connection-status" class="status-dot">●</span></div>
+        <div class="top-actions"><button id="refresh-feed" class="icon-button" title="Atualizar">↻</button></div>
+      </header>
+
+      <section id="view-home" class="view">
+        <div class="hero aero-panel">
+          <div><p class="eyebrow">WELCOME TO THE WEB</p><h1>Um lugar azul, leve e estranho. ☁️</h1><p>Compartilhe pensamentos, desenhos, memes e pequenas coisas do seu dia.</p></div>
+          <div class="hero-art">🌊<br>☁️<br>🐬</div>
+        </div>
+        <form id="post-form" class="composer aero-panel">
+          <textarea id="post-content" maxlength="1000" placeholder="O que está passando pela sua cabeça?" required></textarea>
+          <div class="composer-row"><span id="post-count">0 / 1000</span><button class="aero-button primary" type="submit">Publicar 🌱</button></div>
+        </form>
+        <div id="feed" class="feed"></div>
+      </section>
+
+      <section id="view-profile" class="view hidden"><div id="profile-page"></div></section>
+      <section id="view-explore" class="view hidden">
+        <div class="aero-panel search-box"><input id="search-input" placeholder="Procure pessoas e posts..."><button id="search-button" class="aero-button">Buscar</button></div>
+        <div id="search-results"></div>
+      </section>
+      <section id="view-messages" class="view hidden"><div class="empty aero-panel"><span>💌</span><h2>Mensagens</h2><p>A estrutura está pronta para a próxima etapa: conversas privadas em tempo real.</p></div></section>
+      <section id="view-notifications" class="view hidden"><div id="notifications-list"></div></section>
+      <section id="view-settings" class="view hidden"><div id="settings-page"></div></section>
+    </main>
+  </div>
+
+  <dialog id="donate-dialog" class="donate-dialog aero-panel">
+    <button class="dialog-close" id="donate-close">×</button>
+    <p class="eyebrow">KEEP THE OCEAN BLUE</p><h2>Apoie o WhiteSpace 💙</h2>
+    <p>Escolha uma contribuição. Os botões usam links de pagamento configurados pelo dono do projeto.</p>
+    <div id="donation-options" class="donation-grid"></div>
+    <p class="tiny">Os links ficam em <code>js/config.js</code>. Nunca coloque chaves secretas de pagamento no GitHub Pages.</p>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
