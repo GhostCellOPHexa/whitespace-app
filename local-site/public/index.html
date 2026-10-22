@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111016">
+<meta name="description" content="WhiteSpace — seu espaço, suas regras, sua comunidade.">
+<title>WhiteSpace — seu espaço na internet</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain"></div>
+<header class="top"><a class="brand" href="#"><span class="sigil">W</span> WHITESPACE <small>COMMUNITY / 0.1</small></a><nav><a href="#feed">Comunidade</a><a href="#rules">Manifesto</a><button id="open-auth" class="btn outline">Entrar / Criar conta</button></nav></header>
+<main>
+<section class="hero"><p class="eyebrow">✦ UM ESPAÇO DIGITAL INDEPENDENTE ✦</p><h1>A internet também<br>pode <em>pertencer a você.</em></h1><p class="intro">Uma comunidade livre para criar, conversar e transformar seu perfil em algo só seu. Sem precisar de Gmail. Sem feeds iguais para todo mundo.</p><div class="hero-actions"><button class="btn" id="hero-signup">Criar meu espaço ↗</button><a class="quiet-link" href="#feed">Explorar a comunidade ↓</a></div><div class="status-line"><span class="dot"></span> PROTÓTIPO ABERTO <span>·</span> CONTAS COM NOME + SENHA <span>·</span> BANCO LOCAL</div></section>
+<section class="layout">
+<div class="main-column">
+<section id="feed" class="panel"><div class="section-head"><div><p class="eyebrow">TRANSMISSÕES PÚBLICAS</p><h2>Da comunidade</h2></div><button id="reload" class="btn outline small">↻ Atualizar</button></div><div id="feed-list" class="feed-list"><p class="muted">Carregando publicações…</p></div></section>
+<section id="composer-panel" class="panel hidden"><p class="eyebrow">SEU ESPAÇO</p><h2>Publique alguma coisa.</h2><form id="post-form"><textarea id="post-content" maxlength="1000" placeholder="Uma ideia, um desenho, um pensamento..." required></textarea><div class="form-foot"><span class="muted">Até 1000 caracteres</span><button class="btn">Publicar ↗</button></div></form></section>
+</div>
+<aside class="side-column">
+<section class="panel manifesto" id="rules"><p class="eyebrow">NOSSO MANIFESTO</p><h2>Liberdade com responsabilidade.</h2><p>Seu perfil é seu território criativo. Personalize, experimente, construa. Não precisamos ser iguais para conviver.</p><ul><li>✦ Liberdade de expressão e criação</li><li>✦ Privacidade e autonomia</li><li>✦ Regras públicas e moderação responsável</li><li>✦ Tolerância zero à exploração sexual de menores</li></ul></section>
+<section class="panel account hidden" id="account-panel"><p class="eyebrow">IDENTIDADE</p><h2 id="hello-name">Olá!</h2><p class="muted">Sua chave de conta</p><code id="account-key">—</code><p class="muted tiny">Guarde sua chave em segurança. Ela identifica a conta, mas não substitui sua senha nem recupera a conta sozinha.</p><button id="edit-profile" class="btn outline wide">Personalizar perfil</button><button id="logout" class="quiet-button">Sair da conta</button></section>
+</aside>
+</section>
+</main>
+<footer><span>WHITESPACE © <span id="year"></span></span><span>Feito para pessoas, não para algoritmos.</span></footer>
+<dialog id="auth-dialog"><button class="dialog-x" id="close-auth" aria-label="Fechar">×</button><p class="eyebrow">ACESSO À COMUNIDADE</p><h2 id="auth-title">Entre no seu espaço.</h2><div class="tabs"><button data-mode="login" class="active">Entrar</button><button data-mode="register">Criar conta</button></div><form id="auth-form"><label>Nome de usuário<input id="username" minlength="3" maxlength="24" pattern="[A-Za-z0-9_]{3,24}" autocomplete="username" required placeholder="ex.: lua_sombria"></label><label>Senha<input id="password" type="password" minlength="10" maxlength="128" autocomplete="current-password" required placeholder="Use pelo menos 10 caracteres"></label><p class="muted tiny">Não pedimos e-mail. Use uma senha única e não a compartilhe com ninguém.</p><p id="auth-error" class="error hidden" role="alert"></p><button class="btn wide" id="auth-submit">Entrar ↗</button></form><section id="new-key" class="key-box hidden"><p>Conta criada! Esta é sua chave de conta:</p><code id="new-key-value"></code><button id="copy-key" class="btn outline wide">Copiar chave</button><p class="muted tiny">Salve-a agora. Por segurança, ela não será exibida novamente automaticamente.</p></section></dialog>
+<dialog id="profile-dialog"><button class="dialog-x" id="close-profile" aria-label="Fechar">×</button><p class="eyebrow">CUSTOMIZAÇÃO</p><h2>Seu espaço, suas cores.</h2><form id="profile-form"><label>Nome público<input id="display-name" maxlength="40" required></label><label>Bio<textarea id="bio" maxlength="280" placeholder="Conte um pouco sobre você..."></textarea></label><div class="color-row"><label>Cor de destaque<input id="accent" type="color" value="#b7a1ff"></label><label>Cor de fundo<input id="background" type="color" value="#111016"></label></div><p id="profile-error" class="error hidden"></p><button class="btn wide">Salvar perfil</button></form></dialog>
+<script src="app.js"></script>
+</body></html>
